@@ -42,8 +42,8 @@ mkdir -p build
     LIBIMOBILEDEV=libimobiledevice-1.0 \
     ALLOW_STATIC=no \
     DROIDCAM_OVERRIDE=1 \
-    MOC=%{_qt6_libexecdir}/moc \
-    UIC=%{_qt6_libexecdir}/uic
+    MOC=/usr/lib64/qt6/libexec/moc \
+    UIC=/usr/lib64/qt6/libexec/uic
 
 
 %install
