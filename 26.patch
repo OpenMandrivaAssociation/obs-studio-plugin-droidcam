@@ -5,8 +5,8 @@ diff -uraN droidcam-obs-plugin-2.4.2/linux/gui.mk omv-droidcam-obs-plugin-2.4.2/
  # Copyright (C) 2022 DEV47APPS, github.com/dev47apps
  
  ifdef DROIDCAM_OVERRIDE
-+MOC      ?= /usr/lib/qt6/moc
-+UIC      ?= /usr/lib/qt6/uic
++MOC      ?= /usr/lib64/qt6/libexec/moc
++UIC      ?= /usr/lib64/qt6/libexec/uic
  INCLUDES += -Isrc/ui
  SRC      += src/ui/AddDevice.cpp
  SRC      += src/ui/moc_AddDevice.cpp
