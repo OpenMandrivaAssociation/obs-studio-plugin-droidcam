@@ -1,0 +1,50 @@
+From 6b4bcccae87b2503a74187470aeae93279416580 Mon Sep 17 00:00:00 2001
+From: Neal Gompa <neal@gompa.dev>
+Date: Thu, 17 Apr 2025 15:26:23 -0400
+Subject: [PATCH] Port GUI code to Qt 6
+
+OBS Studio has been using Qt 6 for some time, and dropped support
+for Qt 5 as well since it is EOL. Trivially migrate to Qt 6 so that
+we do not depend on it anymore.
+---
+ linux/gui.mk | 15 +++++++++------
+ 1 file changed, 9 insertions(+), 6 deletions(-)
+
+diff --git a/linux/gui.mk b/linux/gui.mk
+index c7c91af..8450a9c 100644
+--- a/linux/gui.mk
++++ b/linux/gui.mk
+@@ -1,15 +1,17 @@
+ 
+ ifdef DROIDCAM_OVERRIDE
++MOC      ?= /usr/lib/qt6/moc
++UIC      ?= /usr/lib/qt6/uic
+ INCLUDES += -Isrc/ui
+ SRC      += src/ui/AddDevice.cpp
+ SRC      += src/ui/moc_AddDevice.cpp
+ SRC      += src/ui/uic_AddDevice.h
+ 
+ src/ui/uic_AddDevice.h: src/ui/AddDevice.ui
+-	uic -o $@ $^
++	$(UIC) -o $@ $^
+ 
+ src/ui/moc_AddDevice.cpp: src/ui/AddDevice.h
+-	moc -o $@ $^
++	$(MOC) -o $@ $^
+ 
+ .PHONY: install
+ install: /opt/droidcam-obs-client/bin/64bit/droidcam
+@@ -18,8 +20,9 @@ install: /opt/droidcam-obs-client/bin/64bit/droidcam
+ 
+ endif
+ 
+-$(eval $(call ADD_Lib,Qt5Core))
+-$(eval $(call ADD_Lib,Qt5Gui))
+-$(eval $(call ADD_Lib,Qt5Svg))
+-$(eval $(call ADD_Lib,Qt5Widgets))
++$(eval $(call ADD_Lib,Qt6Core))
++$(eval $(call ADD_Lib,Qt6Gui))
++$(eval $(call ADD_Lib,Qt6Svg))
++$(eval $(call ADD_Lib,Qt6SvgWidgets))
++$(eval $(call ADD_Lib,Qt6Widgets))
+ 
