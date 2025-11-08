@@ -11,7 +11,7 @@ Source0:        https://github.com/dev47apps/droidcam-obs-plugin/archive/%{versi
 # This patch is required to build against Qt 6 instead of Qt 5.
 #Patch0:         https://github.com/dev47apps/droidcam-obs-plugin/pull/26.patch
 # Fix build with FFmpeg 8
-#Patch1:         ffmpeg8.patch
+Patch1:         ffmpeg8.patch
 
 BuildRequires:  make
 BuildRequires:  pkgconfig(libturbojpeg)
