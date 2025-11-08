@@ -9,7 +9,7 @@ URL:            https://droidcam.app/obs
 Source0:        https://github.com/dev47apps/droidcam-obs-plugin/archive/%{version}/droidcam-obs-plugin-%{version}.tar.gz
 
 # This patch is required to build against Qt 6 instead of Qt 5.
-Patch0:         https://github.com/dev47apps/droidcam-obs-plugin/pull/26.patch
+#Patch0:         https://github.com/dev47apps/droidcam-obs-plugin/pull/26.patch
 # Fix build with FFmpeg 8
 #Patch1:         ffmpeg8.patch
 
@@ -41,9 +41,7 @@ mkdir -p build
     LIBUSBMUXD=libusbmuxd-2.0 \
     LIBIMOBILEDEV=libimobiledevice-1.0 \
     ALLOW_STATIC=no \
-    DROIDCAM_OVERRIDE=1 \
-    MOC=/usr/lib64/qt6/libexec/moc \
-    UIC=/usr/lib64/qt6/libexec/uic
+    ENABLE_GUI=yes
 
 
 %install
