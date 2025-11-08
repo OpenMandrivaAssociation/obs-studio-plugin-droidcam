@@ -36,6 +36,8 @@ either using WiFi or USB.
 %autosetup -n droidcam-obs-plugin-%{version} -p1
 
 %build
+export CC=gcc
+export CXX=g++
 mkdir -p build
 
 %make_build \
