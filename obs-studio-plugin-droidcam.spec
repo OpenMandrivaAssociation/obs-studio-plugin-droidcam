@@ -39,8 +39,6 @@ either using WiFi or USB.
 mkdir -p build
 
 %make_build \
-    LIBUSBMUXD=libusbmuxd-2.0 \
-    LIBIMOBILEDEV=libimobiledevice-1.0 \
     ALLOW_STATIC=no \
     ENABLE_GUI=yes
 
