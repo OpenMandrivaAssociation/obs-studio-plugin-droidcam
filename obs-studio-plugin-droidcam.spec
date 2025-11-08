@@ -23,6 +23,7 @@ BuildRequires:  pkgconfig(Qt6Core)
 BuildRequires:  pkgconfig(Qt6Gui)
 BuildRequires:  pkgconfig(Qt6Svg)
 BuildRequires:  pkgconfig(Qt6Widgets)
+BuildRequires:  pkgconfig(simde)
 
 Requires:       obs-studio
 
